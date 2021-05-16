@@ -57,7 +57,7 @@ export class Login extends React.Component<{},UserInfo>{
 
   LoginIn(){
     axios.get('http://localhost:3000/youtubeRestfulAPI/user.php?user='+this.state.user).then(response=>{
-        if(response.status==200){
+        if(response.status===200){
             this.setState({authService:true})
         }else{
             alert('user not found')

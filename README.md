@@ -1,8 +1,8 @@
-the root contains two folders
+The root contains two folders
 
 
-    1)youtubeRestfulAPI:
-        the folder has several php files that handle http requests from the front end 
+    1)YoutubeRestfulAPI:
+        The folder has several php files that handle http requests from the front end 
         and one folder that stores the database in ".lib" files with the filename representing the user.
 
         for the app to work the server must be open in port 3000
@@ -10,13 +10,13 @@ the root contains two folders
              ---http://localhost:3000/youtubeRestfulAPI/addVideo.php-----
         
 
-    2)my-app:
-        to start the front end, type npm start in the CLI
-        if that leads to a script starting error
-        delete node_modules and reinstall it by the following command  node install
+    2)My-app:
+        To start the front end, type npm start in the CLI
+        If that leads to a script starting error
+        Delete node_modules and reinstall it by the following command  node install
 
-    3) how to use the app:
-        to access the app the  user must enter his name(Mark or John /!\ its case sensitive /!\) in the first login page
+    3) How to use the app:
+        To access the app the  user must enter his name(Mark or John /!\ its case sensitive /!\) in the first login page
             if the login fails an alert will show
         otherwise the main app UI will show up
         the user then has the possiblity to access his play list on the left side and he can either play a video

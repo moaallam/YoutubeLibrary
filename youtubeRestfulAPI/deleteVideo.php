@@ -23,7 +23,12 @@ if(!is_null($inputData)){
     
 }
 
-
+ /*Cette fonction prend en argument :
+    -Un tableau de video 
+    -la clé
+    -la clé de la vidéo à rajouter
+     la fonction retourne tableau sans la video avec la clé passé en argument
+    */
 
      function removeElementWithValue($array, $key, $value){
      foreach($array as $subKey => $subArray){

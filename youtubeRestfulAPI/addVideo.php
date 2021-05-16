@@ -11,10 +11,20 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
     if(!is_null($dataIn)){
         $file = file_get_contents('./dataBase/'.$dataIn['user'].'.lib');
         $file = json_decode($file,true);
+        if(InTheArray($file['videos'],"id",$dataIn['id'])==true){
         array_push($file['videos'],array('title'=>$dataIn['title'],'id'=>$dataIn['id']));
         file_put_contents('./dataBase/'.$dataIn['user'].'.lib',json_encode($file,JSON_PRETTY_PRINT));
-
+        }
     }
+
+    function InTheArray($array, $key, $value){
+        foreach($array as $subKey => $subArray){
+             if($subArray[$key] == $value){
+                  return false;
+             }
+        }
+        return true;
+        }
 
 
 ?>

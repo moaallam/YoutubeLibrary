@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './youtubeLogo.png';
 import './App.css';
 import {Login} from './components/login'
 

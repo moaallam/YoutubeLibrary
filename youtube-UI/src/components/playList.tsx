@@ -1,10 +1,7 @@
-import React,{Component,useState} from 'react';
+import React,{Component} from 'react';
 import VideoPlayer from './videoPlayer'
 import {SearchResult} from './searchresult'
-
-
 import axios from 'axios'
-
 
 type MyProps = {
     user: string;
@@ -14,6 +11,7 @@ export class PlayList extends React.Component <MyProps,SearchInfo>{
   
     constructor(props:any) {
         super(props);
+        this.refresh=this.refresh.bind(this)
         this.state={
             video:[],
             friends:[],
@@ -33,10 +31,6 @@ export class PlayList extends React.Component <MyProps,SearchInfo>{
                             <button type="button" className="btn btn-primary" onClick={()=>
                                 this.setState({visible:false})}>
                                 Rechercher
-                            </button>
-                            <button type="button" className="btn btn-primary" onClick={()=>
-                                this.componentDidMount()}>
-                                Actualiser
                             </button>
                             </div>
                             <div>
@@ -89,7 +83,7 @@ export class PlayList extends React.Component <MyProps,SearchInfo>{
                                 {this.state.visible? 
                                 <VideoPlayer Id ={this.state.playingvideo}/>
                                 : 
-                                <SearchResult user={this.props.user}/>
+                                <SearchResult user={this.props.user} refresh={this.refresh} />
                                 }
                             </div>
                         </div>
@@ -117,6 +111,12 @@ export class PlayList extends React.Component <MyProps,SearchInfo>{
     } 
 
     componentDidMount(){
+        axios.get('http://localhost:3000/youtubeRestfulAPI/getVideos.php?user='+this.props.user).then(response=>{
+           this.setState({video:response.data.videos})  
+        })
+        this.getOtherUsers();
+    }
+    refresh(){
         axios.get('http://localhost:3000/youtubeRestfulAPI/getVideos.php?user='+this.props.user).then(response=>{
            this.setState({video:response.data.videos})  
         })
