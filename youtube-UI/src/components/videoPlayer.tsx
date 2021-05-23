@@ -1,16 +1,9 @@
-import React,{Component} from 'react';
-import ReactPlayer from 'react-player/youtube';
-import {PlayList} from './playList'
+import React,{Component, FunctionComponent} from 'react';
 
 
-interface Props{
-  Id:string;
-}
-
-
-const VideoPlayer =({Id}:Props)=>{
+const VideoPlayer:FunctionComponent<{id:string}> =({id})=>{
  
-  var url = 'https://www.youtube.com/embed/'+Id;
+  var url = 'https://www.youtube.com/embed/'+id;
   return (
     <div >
       <div className="embed-responsive embed-responsive-16by9">
