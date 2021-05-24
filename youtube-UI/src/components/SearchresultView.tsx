@@ -18,7 +18,7 @@ const SearchresultView:FunctionComponent<{handleSubmit:any,
     return  <div>
     <form onSubmit={e=>handleSubmit(e)}>
         <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Nom de la video</label>
+        <label >Nom de la video</label>
         <input 
             type="text" 
             className="form-control"  
@@ -26,7 +26,7 @@ const SearchresultView:FunctionComponent<{handleSubmit:any,
         />
         </div>
         <div className="form-group">
-        <label htmlFor="exampleInputPassword1">Nombre de resultat</label>
+        <label >Nombre de resultat</label>
         <input 
         type="number" 
         className="form-control" 

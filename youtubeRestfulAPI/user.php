@@ -7,7 +7,7 @@
   
     $data = isset($_GET['user']) ? $_GET['user'] : die();
     if(!is_null($data)){
-
+        //We verify if the file existe and we return 200 as a response if not 202
         if(file_exists('./dataBase/'.$data.'.lib')){
             $file = file_get_contents($data.'.lib');
             $file = json_decode($file,true);

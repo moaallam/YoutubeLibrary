@@ -1,33 +1,7 @@
-import React,{Component, useState} from 'react';
-import ReactPlayer from 'react-player/youtube';
-import axios from 'axios'
-import logo from '../easyvista-squarelogo-1486737482008.png'
-import Youtubemain from './Youtubemain';
-import { FunctionComponent } from 'react';
-
-
-const Login:FunctionComponent<{}>=()=>{
-
-    const [user,setUser]=useState('')
-    const[authService,setAuthService]=useState(false) 
-    
-    function  LoginIn(){
-        console.log("hello")
-        console.log(user)
-        axios.get('http://localhost:3000/youtubeRestfulAPI/user.php?user='+user).then(response=>{
-            if(response.status===200){
-                setAuthService(true)
-            }else{
-                alert('user not found')
-            }
-             })
-    }  
-
-
-        return (
-            <div>
-                {!authService?
-                <div className="container-fluid">
+import { FunctionComponent} from 'react';
+const LoginView:FunctionComponent<{setUser:any,logo:string,LoginIn:any}>= (
+{setUser,logo,LoginIn}
+)=>{return  <div className="container-fluid">
                     <div className="row main-content bg-success text-center">
                         <div className="col-md-4 text-center company__info">
                             <span className="company__logo">
@@ -55,13 +29,7 @@ const Login:FunctionComponent<{}>=()=>{
                             </div>
                         </div>
                     </div>
-                </div>
-                :
-                <Youtubemain user={user}/>
-                }
-            </div>
-          );           
-  }
+                </div>;
+}
 
-  export default Login
-
+export default LoginView

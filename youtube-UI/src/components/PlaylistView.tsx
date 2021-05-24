@@ -1,7 +1,5 @@
-import { Dispatch } from "react";
-import { SetStateAction } from "react";
-import React, { FunctionComponent, useState } from 'react';
-const PlaylistView:FunctionComponent<{user:any ,
+import { FunctionComponent} from 'react';
+const PlaylistView:FunctionComponent<{user:string ,
     setVisible:any,
     setPlayingvideo:any,
     handleDelete:any,
@@ -47,7 +45,7 @@ friends}
                     </button>
 
                     <div className="dropdown">
-                        <button type="button"   className="btn share" onClick={()=>{setVisible(true);setPlayingvideo(video.id);}} >
+                        <button type="button"   className="btn share" onClick={()=>{setVisible(true);}} >
                             Partager Avec
                         </button>
                         <div className="dropdown-content">
