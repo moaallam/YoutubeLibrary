@@ -1,7 +1,6 @@
 import axios from "axios";
-import { FunctionComponent,useState } from "react"
+import { FunctionComponent,useState } from "react";
 import SearchresultView from "./SearchresultView";
-
 const SearchresultController:FunctionComponent<{refresh:any,user:string}>=({refresh,user})=>{
     const [numberOfResults, setNumberOfResults] = useState("")
     const [searchTitle,setSearchTitle]=useState("")

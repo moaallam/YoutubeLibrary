@@ -1,7 +1,10 @@
+import dompurify, { sanitize } from 'dompurify';
 import { FunctionComponent} from 'react';
-const LoginView:FunctionComponent<{setUser:any,logo:string,LoginIn:any}>= (
-{setUser,logo,LoginIn}
-)=>{return  <div className="container-fluid">
+const LoginView:FunctionComponent<{setUser:any,logo:string,LoginIn:any}>= ({setUser,logo,LoginIn}
+)=>{const sanitizer = dompurify.sanitize;
+    
+    
+    return  <div className="container-fluid">
                     <div className="row main-content bg-success text-center">
                         <div className="col-md-4 text-center company__info">
                             <span className="company__logo">
@@ -17,11 +20,11 @@ const LoginView:FunctionComponent<{setUser:any,logo:string,LoginIn:any}>= (
                                 <div className="row">
                                     <form  className="form-group">
                                         <div className="row">
-                                            <input type="text" name="username" id="username" className="form__input" placeholder="Username" onChange={e=>{
-                                            setUser(e.target.value); } }/>
+                                            <input type="text" name="username" aria-label="username" className="form__input" placeholder="Username" onChange={e=>{
+                                            setUser(sanitize(e.target.value)); } }/>
                                         </div>
                                         <div className="row">
-                                            <input  value="Submit" className="btn" onClick={()=>
+                                            <input  value="Submit" aria-label="Submit" className="btn" onClick={()=>
                                             LoginIn()}/>
                                         </div>
                                     </form>

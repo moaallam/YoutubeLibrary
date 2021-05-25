@@ -18,8 +18,8 @@ friends}
     return<div>
     <div className="first"  >
         <div className="tools">
-        <button type="button" className="btn btn-primary" onClick={()=>
-            setVisible(false)}>
+        <h3>{user}</h3>
+        <button type="button" className="btn btn-primary" onClick={()=>setVisible(false)}>
             Rechercher
         </button>
         </div>
@@ -36,23 +36,23 @@ friends}
                     <p className="card-text">
                         {video.id}
                     </p>
-                    <button type="button" className="btn delete"  onClick={()=>
+                    <button type="button" className="btn delete" aria-label="Delete" onClick={()=>
                         handleDelete(video.id,user)} >
                         X
                     </button>
-                    <button type="button" className="btn " onClick={()=>{setVisible(true);setPlayingvideo(video.id);}} >
+                    <button type="button" className="btn" aria-label="Watch the video" onClick={()=>{setVisible(true);setPlayingvideo(video.id);}} >
                         Voir
                     </button>
 
                     <div className="dropdown">
-                        <button type="button"   className="btn share" onClick={()=>{setVisible(true);}} >
+                        <button type="button" className="btn share" aria-label="Share the video" onClick={()=>{setVisible(true);}} >
                             Partager Avec
                         </button>
                         <div className="dropdown-content">
                             
                         {friends.map(name=>(
                             <div>
-                            <a onClick={()=>
+                            <a aria-label="share the video" onClick={()=>
                                shareVideo(video.title,video.id,name)} >{name}</a>
                            
                             </div>

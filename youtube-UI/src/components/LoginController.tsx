@@ -5,9 +5,8 @@ import LoginView from './LoginView';
 
 
 const LoginController:FunctionComponent<{setAuthService:any,setUser:any,user:string}>=({setAuthService,setUser,user})=>{
-    
+    //To login via the user by a GET request to my youtubeRestfulAPI ,we verify the status reponse to change the AthService value
     function  LoginIn(){
-
         axios.get('http://localhost:3000/youtubeRestfulAPI/user.php?user='+user).then(response=>{
             if(response.status===200){
                 setAuthService(true)
@@ -16,11 +15,7 @@ const LoginController:FunctionComponent<{setAuthService:any,setUser:any,user:str
             }
              })
     }  
-
-        return <div>
-                <LoginView setUser={setUser} logo={logo} LoginIn={LoginIn}/>
-                </div>
-          ;           
+        return <div><LoginView setUser={setUser} logo={logo} LoginIn={LoginIn}/></div>;           
   }
 
   export default LoginController
